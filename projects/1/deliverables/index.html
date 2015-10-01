@@ -2,12 +2,61 @@
 <html>
 <head>
 
-    <title> About Me! </title>
+    <title> About Me Page </title>
 
 </head>
 <body>
     
-    <h1> This is a header! </h1>
+    <h1> About Me Page </h1>
+        <p> Hey, I'm a fancy, fancy paragraph! </p>
+        
+    <img src="https://s-media-cache-ak0.pinimg.com/236x/bd/06/21/bd0621cfdf4cf49def9bfa9a3446df07.jpg" />
+    <!-- Various types of headers, each smaller than the last
+    <h2> About Me Page </h2>
+    <h3> About Me Page </h3>
+    <h4> About Me Page </h4>
+    <h5> About Me Page </h5>
+    <h6> About Me Page </h6>
+    
+    <ul>
+    This is an unordered list! 
+        <li> this is list item 1</li>
+        <li> this is list item 2</li>
+    </ul>
+    
+    <ol>
+    This is an ordered list!
+        <li> this is list item 1</li>
+        <li> this is list item 2</li>
+    </ol>
+    -->
+    
+    <form id="sayHi">
+        Name:
+        <input id="firstname" type="text" name="firstname">
+        <input type="submit" value="Submit">
+    </form>
+
+<!-- # == ID -->
+<!-- . = CLASS -->
+
+<!-- Use .value instead of .val() 
+    CamelCase is the way to go -->
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+
+    $(function(){
+        $("#sayHi").on("submit", function(event) {
+            event.preventDefault();
+            
+            var FirstName = $("#firstname").val();
+            alert("Hello, " + FirstName);
+        });
+    });
+
+</script>
 
 </body>
 
