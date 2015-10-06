@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fabio Anselmo - Homepage</title>
+	
+	<!-- This is css -->
+	<style type="text/css">
+		.outline {
+			border: 1px solid #ccc;
+			padding: 5px 10px;
+			margin: 5px;
+			display: inline-block;
+		}
+	</style>
+
+</head>
+<body>
+
+
+<h1>Headings</h1>
+<h2>Headings</h2>
+<h3>Headings</h3>
+<h4>Headings</h4>
+<h5>Headings</h5>
+<h6>Headings</h6>
+
+<br />
+
+<p>Paragraph</p>
+
+<i>Italic text</i>
+
+<b>Bold text</b>
+
+<em>Emphasized text</em>
+
+<kbd>Keyboard character</kbd>
+
+<code>
+	JavaScript Code
+</code>
+
+<br />
+
+<ul>
+	<li>list item 1</li>
+	<li>list item 2</li>
+</ul>
+
+<ol>
+	<li>list item 1</li>
+	<li>list item 2</li>
+</ol>
+
+<br />
+
+<code>
+	&lt;!-- This is an HTML Comment -->
+	<!-- This is an HTML Comment (THIS DOES NOT DISPLAY IN THE BROWSER) -->
+	<br />
+
+	&lt;!-- # === ID -->
+	<!-- # === ID (THIS DOES NOT DISPLAY IN THE BROWSER) -->
+	<br />
+
+	&lt;!-- . === CLASS -->
+	<!-- . === CLASS (THIS DOES NOT DISPLAY IN THE BROWSER) -->
+</code>
+
+<br />
+
+ This is a link: <a href="about.html"> ABOUT ME </a>
+
+<br />
+
+<form id="sayHi">
+	Hello, What is your name?
+	<input id="firstname" type="text" name="fname">
+	<input type="submit" value="Submit">
+</form>
+
+<br />
+
+<!-- CSS -->
+<div id="message" style="display: inline-block; visibility: hidden;">
+</div>
+
+<!-- Load in jQuery from the CDN -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript">
+	
+
+	// Wait for the `document` to load and then immediately
+	// run the code within this block.
+	$(function(){
+
+
+		// jQuery: Display a message on the page within 
+		// `div#message` that greets you after you 
+		// input your name. 
+		$("#sayHi").on("submit", function (e) {
+			
+			e.preventDefault();
+
+			var firstName = $("#firstname").val();
+
+			if( firstName.length > 1 ) {
+				
+				$("#message").html("<h3>Hello, " + firstName + "! How are you doing today?</h3>")
+							 .css({
+							 	'color':'#4F717D', 
+							 	'visibility':'visible'
+							 });
+
+			} else {
+
+				$("#message").html("<h3>Name must greater than 1 character!</h3>")
+					         .css({
+					         	'color':'#BC2F31', 
+					         	'visibility':'visible'
+					         });
+
+			}
+
+		});
+
+
+
+		// Using JavaScript only: set a class attribute of `outline`
+		// to each tag within the `body`.
+		var bodyElements = document.body.getElementsByTagName('*');
+
+		for(var i = 0; i < bodyElements.length; i++) {
+				
+			if ( bodyElements[i].tagName != "SCRIPT" && bodyElements[i].tagName != "LI" && bodyElements[i].tagName != "INPUT" ) {
+
+				bodyElements[i].setAttribute('class', 'outline');
+				
+			}
+
+		}
+
+
+	});
+
+</script>
+
+
+</body>
+</html>
