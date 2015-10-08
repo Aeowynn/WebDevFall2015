@@ -1,0 +1,180 @@
+/* body / global */
+body {
+        -webkit-font-smoothing: antialiased;
+        color:#4DB8ES;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 100;
+        text-align: center;
+}
+
+html {
+    /*background: url(../images/bg-code.jpg) no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+p {
+        color: #296077;
+        font-size: 20px;
+        letter-spacing: 1px;
+}
+
+.section {
+        margin-top: 75px
+}
+
+.container {
+        margin: 0 auto;
+        background: rbga(0,0,0, .55);
+        box-shadow: 0 0 100px #020506
+}
+
+h2 {
+        font-size: 35px;
+        font-weight: 100;
+        border-bottom: 1px solid rgba(77, 184, 229, .33);
+}
+
+.col {
+        vertical-align: top;
+        display: inline-block;
+        padding: 0 30px;
+        margin-top: 50px;
+}
+
+b {
+        text-shadow: 3px 3px 0 rgba(41, 102, 127, .85);
+}
+
+/* Header */
+header {
+
+}
+
+header h1 {
+        font-size: 50px;
+        text-shadow: 3px 3px 0 rgba(41, 102, 127, .85);
+}
+
+header img {
+        border-radius: 50%;
+        border: 1px solid rgba(77, 184, 229, .33);
+        padding: 25px;
+        box-shadow: 0 0 100px #020506;
+        width: 250px;
+        opacity: .85;
+        margin-top: 50px;
+}
+
+/* About */
+#about {
+}
+
+#about h2 {
+        color: #296077;
+}
+
+/* Skills */
+#skills {
+}
+
+#skills h2 {
+        color: #296077;
+}
+
+#skills .col ul {
+        padding: 0;
+        margin: 0;
+}
+        
+#skills ul li {
+        font-weight: 600;
+        text-align: left;
+        list-style: none;
+        font-size: 18px;
+        color: #296077;
+}
+
+#skills ul ul li {
+        font-weight: 300;
+}
+
+#skills .col .skill-score {
+        margin-bottom: 10px;
+}
+
+/* Portfolio */
+#portfolio {
+}
+
+#portfolio h2 {
+        color: #296077;
+}
+
+/* Education */
+#education {
+} 
+
+#education h2 {
+        color: #296077;
+}
+
+#education .col ul {
+        padding: 0;
+        margin: 0;
+}
+        
+#education ul li {
+        font-weight: 600;
+        text-align: left;
+        list-style: none;
+        font-size: 18px;
+        color: #296077;
+}
+
+#education ul ul li {
+        font-weight: 300;
+}
+
+#education .col .skill-score {
+        margin-bottom: 10px;
+}
+
+/* Work Experience */
+#workexperience {
+}
+
+#workexperience h2 {
+        color: #296077;
+}
+
+#workexperience .col ul {
+        padding: 0;
+        margin: 0;
+}
+        
+#workexperience ul li {
+        font-weight: 600;
+        text-align: left;
+        list-style: none;
+        font-size: 18px;
+        color: #296077;
+}
+
+#workexperience ul ul li {
+        font-weight: 300;
+}
+
+#workexperience .col .skill-score {
+        margin-bottom: 10px;
+}
+
+/* Contact */
+#contact {
+}
+
+#contact h2 {
+        color: #296077;
+}

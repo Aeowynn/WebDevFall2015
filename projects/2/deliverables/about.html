@@ -1,69 +1,111 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title> Kara James - About Me pt 2</title>
-    
-    <style type="text/css">
-        .outline {
-            border: 1px solid #ccc;
-            padding: 5 px 10px;
-            margin 5px;
-            display: inline-block;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <h1 style="text-align:center; color:blueviolet"> Hi! I'm Kara James. </h1>
+<div class="container">
+    <header>
+        <div class="my-image">
+            <img src="http://www.karashavalierjames.com/uploads/2/6/9/1/26910401/1428164984.png">
+        </div>
+        <h1>Hi, I'm Kara James.</h1>
+    </header>
     
-    <img src="http://www.karashavalierjames.com/uploads/2/6/9/1/26910401/1428164984.png">
+    <div class="section" id="about">
+        <h2> About </h2>
+        <p>I recently graduated from CU Boulder with a BA in Computer Science. I'm currently learning to build web applications and websites! Keep reading if you'd like to learn more about me.</p>
+    </div>
     
-    <p> I recently graduated from CU Boulder with a BA in Computer Science. I'm currently learning to build web applications and websites! Keep reading if you'd like to learn more about me.</p>
-    
-    <h2 style="text-align:center; color:blueviolet"> Education </h2>
-    <ul>
-        <li style="font-size: 20px"> University of Colorado, Boulder: <i>August 2012 to May 2015</i></li>
-            <ul style="font-size: 16px">
-                Graduated with a degree in Computer Science
+    <div class="section" id="skills">
+        <h2>Skills</h2>
+        <div class="col">
+            <ul>
+                <li data-score="10">Project Management</li>
+                <li data-score="10">Python</li>
+                <li data-score="10">Communication Skills</li>
+                <li data-score="9">HTML</li>
+                <li data-score="8">Researching</li>
             </ul>
-        <li style="font-size: 20px"> State University of New York at Geneseo: <i>August 2007 to May 2011</i></li>
-            <ul style="font-size: 16px">
-                Graduated with a degree in Anthropology
+        </div>
+        <div class="col">
+            <ul>
+                <li data-score="8">Git</li>
+                <li data-score="7">C</li>
+                <li data-score="7">C++</li>
+                <li data-score="6">CSS</li>
+                <li data-score="5">Java</li>
             </ul>
-    </ul>
+        </div>
+        
+    </div>
     
-    <h2 style="text-align:center; color:blueviolet"> Work Experience </h2>
-    <ul>
-        <li style="font-size: 20px"> Learning Assistant at the Computer Science Lab, <em>Spring 2014</em></li>
-            <ul style="font-size: 16px"> Installed and fixed virtual machines</ul>
-            <ul style="font-size: 16px"> Answered a wide range of programming questions for students</ul>
-        <li style="font-size: 20px"> Teaching Assistant for Dr. Paul J. Pacheco, <i>Fall 2010</i></li>
-            <ul style="font-size: 16px"> Organized and lead review sessions for the students</ul>
-            <ul style="font-size: 16px"> Taught several classes to a lecture hall of over one hundred students</ul>
-        <li style="font-size: 20px"> Assistant Supervisor to Dr. Paul J. Pacheco at Archaeological Field School, <i>Summer 2010</i></li>
-            <ul style="font-size: 16px"> Supervised field technicians; kept them organized and on schedule</ul>
-            <ul style="font-size: 16px"> Kept a detailed log of excavation progress and organized the technicians' field notes</ul>
-    </ul>
+    <div class="section" id="portfolio">
+        <h2> Portfolio </h2>
+        <div class="col">
+            <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col">
+            <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col">
+            <img src="http://placehold.it/200x200">
+        </div>
+        <div class="col">
+            <img src="http://placehold.it/200x200">
+        </div>
+    </div>
     
-    <h2 style="text-align:center; color:blueviolet"> Skills </h2>
-    <ul>
-        <li data-score="10">Project Management</li>
-        <li data-score="10">Python</li>
-        <li data-score="10">Communication Skills</li>
-        <li data-score="8">Researching</li>
-        <li data-score="8">Git</li>
-        <li data-score="7">HTML</li>
-        <li data-score="7">C</li>
-        <li data-score="7">C++</li>
-        <li data-score="5">Java</li>
-    </ul>
+    <div class="section" id="education">
+        <h2>Education</h2>
+        <div class="col">
+            <ul>
+            <li> University of Colorado, Boulder: <i>August 2012 to May 2015</i></li>
+                <ul>
+                    Graduated with a degree in Computer Science
+                </ul>
+            <li> State University of New York at Geneseo: <i>August 2007 to May 2011</i></li>
+                <ul>
+                    Graduated with a degree in Anthropology
+                </ul>
+            </ul>
+        </div>
+    </div>
     
-    <h2 style="text-align:center; color:blueviolet"> Contact Information</h2>
-    <p> Email: kara.james@colorado.edu </p>
-    <p> GitHub <a href="https://github.com/Aeowynn">Repository</a></p>
+    <div class="section" id="workexperience">
+        <h2> Work Experience </h2>
+        <div class="col">
+            <ul>
+                <li> Learning Assistant at the Computer Science Lab</li>
+                    <ul><em>Spring 2014</em></ul>
+                    <ul> Installed and fixed virtual machines</ul>
+                    <ul> Answered a wide range of programming questions for students</ul>
+                <li> Teaching Assistant for Dr. Paul J. Pacheco </li>
+                    <ul><i>Fall 2010</i></ul>
+                    <ul> Organized and lead review sessions for the students</ul>
+                    <ul> Taught several classes to a lecture hall of over one hundred students</ul>
+                <li> Assistant Supervisor to Dr. Paul J. Pacheco at Archaeological Field School, <i>Summer 2010</i></li>
+                    <ul> Supervised field technicians; kept them organized and on schedule</ul>
+                    <ul> Kept a detailed log of excavation progress and organized the technicians' field notes</ul>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section" id="contact">
+        <h2>Contact Information</h2>
+        <p> Email: kara.james@colorado.edu </p>
+        <p> GitHub <a href="https://github.com/Aeowynn">Repository</a></p>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script src="assets/js/script.js"></script>
 
 </body>
-
 </html>
