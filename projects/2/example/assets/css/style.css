@@ -15,6 +15,8 @@ html {
   background-size: cover;
 }
 
+
+
 p {
 	font-size: 20px;
 	letter-spacing: 1px;
@@ -53,6 +55,15 @@ header {
 
 }
 
+header .my-image {
+	border: 25px solid rgba(100, 100, 100, .33);
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	position: relative;
+	margin: 50px auto;
+}
+
 header h1 {
 	font-size: 50px;
   	text-shadow: 3px 3px 0 rgba(41, 102, 127, .85);
@@ -60,11 +71,11 @@ header h1 {
 
 header img {
 	border-radius: 50%;
-	border: 1px solid rgba(77, 184, 229, .33);
+	border: 10px solid rgba(77, 184, 229, .11);
 	box-shadow: 0 0 100px #020506;
 	width: 250px;
 	opacity: .85;
-	margin-top: 50px;
+	margin: -10px 0 0 -10px;
 }
 
 
