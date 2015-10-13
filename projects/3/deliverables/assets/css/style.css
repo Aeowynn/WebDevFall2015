@@ -1,0 +1,22 @@
+body
+    {
+        padding: 0;
+        margin: 0;
+    }
+
+/* Header Information */
+header
+    {
+        width: 45%;
+    }
+
+header img
+    {
+        width: 85%;
+    }
+
+/* Content Information */
+content
+    {
+    
+    }
