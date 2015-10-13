@@ -1,0 +1,124 @@
+body {
+	padding: 0;
+	margin: 0 auto;
+	background: #eee;
+}
+
+/* Container Begins */
+.container {
+	width: 85%;
+	min-width: 960px;
+	margin: 50px auto;
+	padding: 5px;
+}
+
+h1, h2 {
+	margin: 0;
+	padding: 0;
+	font-weight: 100;
+}
+/* Container Ends */
+
+/* Header Begins */
+header {
+	width:100%;
+}
+
+header img {
+	width: 100%;
+	max-height: 260px;
+}
+/* Header Ends */
+
+
+
+/* Content Begins */
+content {
+}
+
+content .yoyoImg {
+	width: 600px;
+	margin-top: 20px;
+}
+
+content format {
+	display: block;
+	font-size: 12px;
+	color: #777;
+}
+
+content #cta {
+	padding: 5px;
+	border: 1px solid #aaa;
+	background: white;
+}
+
+content #cta input {
+	font-size: 15px;
+}
+
+content #cta input.tf, content #cta label {
+	display: block;
+	margin-top: 10px;
+	width: 362px;
+}
+
+content #cta input.tf.name {
+	display: inline-block;
+	width: 176px;
+}
+
+content #cta input.tf.name.no-margin {
+	margin: 0;
+}
+
+content #cta .submitBtn {
+	font-size: 20px;
+	width: 368px;
+	margin-top: 20px;
+	padding: 6px 0;
+	background: green;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	border:none;
+}
+/* Content Ends */
+
+
+/* Footer Begins */
+footer {
+	background: #333;
+	height: 90px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	color: white;
+}
+/* Footer Ends */
+
+
+
+/* Global Begins */
+.row {
+	display: block;
+	clear: both;
+}
+
+.row ul {
+	padding: 0;
+	margin: 0;
+}
+
+.row ul li {
+	list-style-type: none;
+	display: inline-block;
+	width: 30%;
+}
+
+
+.column {
+	float: left;
+	vertical-align: top;
+}
+/* Global Ends */

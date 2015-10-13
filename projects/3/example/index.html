@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project 3: Landing Page: My Awesome Yo-Yo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+
+	<header>
+		
+		<img src="assets/images/header_1.png">
+
+	</header>
+
+
+	<div class="container">
+	<content>
+		
+		<!-- Main content body / cta form Begins -->
+		<div class="row">
+			
+
+			<div class="column" style="width:580px">
+				<!-- Heading -->
+				<h1>My Super Awesome Yo-Yo</h1>
+				<!-- Image -->
+				<img class="yoyoImg" src="assets/images/yoyo.png">
+
+				<!-- Paragraph -->
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut efficitur ipsum, eu mollis tellus. Nunc mollis purus a eros viverra, eu viverra quam consectetur. Suspendisse eleifend id sapien nec porta.</p>
+			</div>
+
+			<div class="column" style="width:380px">
+				<!-- Sub-Heading -->
+				<h2>Get more information about my Yo-Yo</h2>
+				<!-- CTA FORM -->
+				<form id="cta">
+					<input class="tf name no-margin" type="text" name="firstname" placeholder="First name">
+					<input class="tf name no-margin" type="text" name="lastname" placeholder="Last name">
+					<input class="tf" type="email" name="emailaddress" placeholder="Email address">
+					
+					<label>Date of Birth</label>
+					<select name="month">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select> / 
+					<select name="day"></select> /
+					<select name="year"></select>
+					<format>month/day/year</format>
+
+					<!-- <input type="date"> -->
+
+					<label>Are you over 35?</label>
+					<input type="radio" name="over21" value="yes">Yes
+					<input type="radio" name="over21" value="no">No
+
+					<br>
+
+					<label>Select all of the colors you like:</label>
+					<input type="checkbox" name="favColors" value="red">Red
+					<input type="checkbox" name="favColors" value="blue">Blue
+					<input type="checkbox" name="favColors" value="green">Green
+
+					<br>
+
+					<input class="submitBtn" type="submit" value="Submit">
+				</form>
+			</div>
+
+		</div>
+		<!-- Main content body / cta form Ends -->
+
+		<!-- Features Row Begins -->
+		<div class="row">
+			
+			<ul>
+				<li>
+					<img src="http://placehold.it/50x50">
+					Feature 1
+					<p>Here is some text about this feature</p>
+				</li>
+				<li>
+					<img src="http://placehold.it/50x50">
+					Feature 2
+					<p>Here is some text about this feature</p>
+				</li>
+				<li>
+					<img src="http://placehold.it/50x50">
+					Feature 3
+					<p>Here is some text about this feature</p>
+				</li>
+			</ul>
+
+		</div>
+		<!-- Features Row Ends -->
+
+	</content>
+	</div>
+
+	<footer>
+		Footer
+	</footer>
+
+
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script type="text/javascript">
+	$(function(){
+
+		var minYear = new Date().getFullYear() - 18,
+		    day = $('select[name="day"]'),
+		    year = $('select[name="year"]');
+
+		for(var i = 1; i <= 31; i++){
+			day.append( $("<option></option>").attr("value", i).text(i) );
+		};
+
+		for( ; minYear >= 1920; minYear--){
+			year.append( $("<option></option>").attr("value", minYear).text(minYear) );
+		};
+
+	});
+	</script>
+</body>
+</html>

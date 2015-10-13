@@ -55,5 +55,6 @@ Please make sure all of your work is created within the **deliverables folder**.
 #### Topics Covered:
 1. HTML
 2. CSS
+  * Enhancing our site using Bootstrap
 3. Javascript
 
