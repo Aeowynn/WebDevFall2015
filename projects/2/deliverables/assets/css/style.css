@@ -1,14 +1,14 @@
 /* body / global */
 body {
         -webkit-font-smoothing: antialiased;
-        color:#4DB8ES;
+        color: #B2B2D1;/*#4DB8ES;*/
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-weight: 100;
         text-align: center;
 }
 
 html {
-    /*background: url(../images/bg-code.jpg) no-repeat center center fixed;*/
+    background: url(../images/bg-code.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -16,7 +16,7 @@ html {
 }
 
 p {
-        color: #296077;
+        color: #B2B2D1 /*#296077;*/
         font-size: 20px;
         letter-spacing: 1px;
 }
@@ -73,7 +73,7 @@ header img {
 }
 
 #about h2 {
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 /* Skills */
@@ -81,7 +81,7 @@ header img {
 }
 
 #skills h2 {
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 #skills .col ul {
@@ -94,7 +94,7 @@ header img {
         text-align: left;
         list-style: none;
         font-size: 18px;
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 #skills ul ul li {
@@ -110,7 +110,7 @@ header img {
 }
 
 #portfolio h2 {
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 /* Education */
@@ -118,7 +118,7 @@ header img {
 } 
 
 #education h2 {
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 #education .col ul {
@@ -131,7 +131,7 @@ header img {
         text-align: left;
         list-style: none;
         font-size: 18px;
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 #education ul ul li {
@@ -147,7 +147,7 @@ header img {
 }
 
 #workexperience h2 {
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 #workexperience .col ul {
@@ -160,7 +160,7 @@ header img {
         text-align: left;
         list-style: none;
         font-size: 18px;
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
 
 #workexperience ul ul li {
@@ -176,5 +176,11 @@ header img {
 }
 
 #contact h2 {
-        color: #296077;
+        color: #B2B2D1; /*#296077;*/
 }
+
+a
+    {
+        text-decoration: none;
+        color: #B2B2D1;
+    }
