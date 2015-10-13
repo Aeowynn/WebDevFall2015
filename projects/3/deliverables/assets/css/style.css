@@ -1,22 +1,148 @@
 body
     {
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
+        background: #eee;
     }
 
-/* Header Information */
-header
+/* Container Begins */
+.container
+    {
+        width: 85%;
+        min-width: 960px;
+        margin: 50px auto;
+        padding: 5px;
+    }
+    
+h1, h2
+    {
+        margin: 0;
+        padding: 0;
+        font-weight: 100;
+    }
+/* Container Ends */
+
+/* Header Begins */
+.headerLeft
     {
         width: 45%;
+        display: left;
+        float: left;
+        vertical-align: top;
     }
 
-header img
+.headerRight
+    {
+        display: right;
+        float: right;
+        vertical-align: top;
+    }
+
+.headerRight img
     {
         width: 85%;
     }
+/* Header Ends */
 
-/* Content Information */
+/* Content Begins */
 content
     {
     
+    }
+
+content format
+    {
+        display: block;
+        font-size: 12px;
+        clear: both;
+        color: #000ccc; /*change*/
+    }
+
+content #cta
+    {
+        padding: 5px;
+        border: 1px solid #aaa;
+        background: white;
+    }
+
+content #cta input
+    {
+        font-size: 15px;
+    }
+
+content #cta input.tf, content #cta label
+    {
+        display: block;
+        margin-top: 10px;
+        width: 362px;
+    }
+
+content #cta input.tf.name
+    {
+        display: inline-block;
+        width: 176px;
+    }
+    
+content #cta input.tf.name.np-margin
+    {
+        margin: 0;
+    }
+
+content #cta .submitButton
+    {
+        font-size: 20px;
+        width: 368px;
+        margin-top: 20px;
+        padding: 6px 0;
+        background: green;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        border: none;
+    }
+/* Content Ends */
+
+/* Footer Begins */
+/*footer
+    {
+        background: #333;
+        height: 90px;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        color: white;
+    }
+    */
+/* Footer Ends */
+
+/* Global Begns */
+.row
+    {
+        display: inline-block;
+        clear: both;
+    }
+
+.row ul
+    {
+        padding: 0;
+        margin: 0;
+    }
+
+.row ul li
+    {
+        list-style-type: none;
+        /* Not needed; stacked instead of lined; display: inline-block;*/
+        width: 50%;
+    }
+
+.columnLeft
+    {
+        float: left;
+        vertical-align: top;
+    }
+    
+.columnRight
+    {
+        float: right;
+        vertical-align: top;
     }
