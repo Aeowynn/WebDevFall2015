@@ -1,7 +1,7 @@
 body
     {
         padding: 0;
-        margin: 0 auto;
+        margin: 20 auto;
         background: #eee;
     }
 
@@ -10,30 +10,45 @@ body
     {
         width: 85%;
         min-width: 960px;
-        margin: 50px auto;
+        /*margin: 25px auto;*/
         padding: 5px;
     }
     
-h1, h2
+h1, h3
     {
-        margin: 0;
+        margin: 5px;
         padding: 0;
         font-weight: 100;
+        font-family: Verdana sans-serif;
+    }
+    
+h2
+    {
+        margin: 5px;
+        padding: 0 0 0 15px;
+        font-weight: 100;
+        font-family: Verdana sans-serif;
+    }
+
+p
+    {
+        padding: 10px;
+        font-size: 20px;
     }
 /* Container Ends */
 
 /* Header Begins */
 .headerLeft
     {
-        width: 45%;
-        display: left;
+        width: 50%;
+        display: inline-block;
         float: left;
         vertical-align: top;
     }
 
 .headerRight
     {
-        display: right;
+        display: inline-block;
         float: right;
         vertical-align: top;
     }
@@ -124,25 +139,35 @@ content #cta .submitButton
 
 .row ul
     {
-        padding: 0;
-        margin: 0;
+        padding: 5;
+        margin: 20;
     }
 
 .row ul li
     {
         list-style-type: none;
-        /* Not needed; stacked instead of lined; display: inline-block;*/
-        width: 50%;
+        margin: 20;
+        padding: 50;
+        font-size: 18px;
+        font-family: Verdana sans-serif;
     }
 
 .columnLeft
     {
+        display: block;
         float: left;
         vertical-align: top;
+        max-width: 50%;
     }
     
 .columnRight
     {
-        float: right;
+        display: inline-block;
+        /*float: right;*/
         vertical-align: top;
+    }
+
+#paws
+    {
+        width: 10%
     }
