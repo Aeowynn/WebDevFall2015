@@ -1,0 +1,30 @@
+body {
+	background: #eee;
+}
+
+#header {
+
+}
+
+#content-section {
+
+}
+
+#feature-section {
+
+}
+
+#footer {
+	background: #333;
+	color: #fff; /* font color */
+	min-height: 100px;
+}
+
+/* Override bootstrap */
+.row div[class^="col"] {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	background: #ccc;
+	border: 1px solid #999;
+}
