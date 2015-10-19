@@ -98,7 +98,7 @@ content #cta input.tf.name
         width: 176px;
     }
     
-content #cta input.tf.name.np-margin
+content #cta input.tf.name.no-margin
     {
         margin: 0;
     }
