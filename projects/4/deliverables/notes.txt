@@ -1,0 +1,88 @@
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	(function(){
+
+		// load homepage without a network request
+		$("#loadHomepage").on('click', function(e) {
+            //don't do the default behavior
+			e.preventDefault();
+            //
+			window.location.hash = '';
+			document.title = document.title.split('-')[0]; 
+
+			$('#content').empty();
+			$('#posts').show();
+		});
+
+		function pageRouter() {
+            //get the location of the click?
+			var page = window.location.hash,
+				link;
+
+			if(page){
+				link = $('a[href="'+page+'"]');
+				if(link[0] !== undefined){
+					var postUrl = page.split("#")[1];
+					var title = link.attr('title');
+					document.title += ' - ' + title; 
+					$('#content').show();
+					$('#pageloader').show();
+					$("#content").load(postUrl);
+					$('#navigation').show();
+					$('#posts').hide();
+				} else {
+					window.location = '/404.html';
+				};
+			} else {
+				$('#content').empty().hide();
+				$('#posts').show();
+				$('#navigation').hide();
+			};
+
+			$('#pageloader').hide();
+		}
+
+		function renderPostTags() {
+			var tags = $('.tags'),
+				uniqTags = [],
+				postsVisible = $('#posts').is(":visible");
+
+			if(postsVisible){
+				tags.each(function(i, tag) {
+				  $(tag).data('tags').split(',').map(function(tagData) {
+				    var tagName = tagData.replace(/^\s+|\s+$/gm,'');
+				    if (uniqTags.indexOf(tagName) < 0) { uniqTags.push(tagName); };
+				    $(tag).append('<div class="icon icon-'+tagName+'" title="'+tagName+'"></div>');
+				  });
+				});
+
+				$(uniqTags).each(function(i, tag) {
+					$('#tagsFilter').append('<div class="icon icon-'+tag+'" title="'+tag+'"></div>');
+				});
+			};
+		}
+
+		function filterPosts(){
+			$('#tagsFilter .icon').on('click', function(){
+				var posts = $('.post .tags').find("[title='"+this.title+"']").closest('.post');
+				$('.post').hide();
+				$(posts).each(function(i, post) {
+					$(post).show();
+				});
+			});
+		}
+
+		$(function(){
+			// On document ready initialize functions
+			renderPostTags();
+			filterPosts();
+			pageRouter();
+
+			// In case a user clicks the back or forward button
+			window.onhashchange = function() {
+				pageRouter();
+			}
+		});
+
+	}());
+</script>
