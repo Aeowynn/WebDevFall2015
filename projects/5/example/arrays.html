@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jasmine Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine-html.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/boot.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+  <script type="text/javascript">
+
+    describe("Array's", function(){
+
+      it("array literal syntax and indexing", function() {
+          var favouriteThings = ["cellar door", 42, true]; // note that array elements do not have to be of the same type
+
+          expect(favouriteThings[0]).toEqual("cellar door") // what is in the first position of the array?
+          expect(favouriteThings[1]).toEqual(42) // what is in the second position of the array?
+          expect(favouriteThings[2]).toEqual(true) // what is in the third position of the array?
+          expect(favouriteThings[3]).toEqual(undefined) // what is in the fourth position of the array?
+      });
+
+      it("array type", function() {
+          var arr = []
+          expect(arr instanceof Array).toBeFalsy() // Is arr [] aninstanceof Array? True or false?
+      });
+
+      it("length", function() {
+          var collection = ['a','b','c'];
+
+          expect(collection.length).toEqual('___') // what is the length of the collection array?
+      });
+
+      it("splice", function() {
+          var daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+          expect(daysOfWeek['___']).toEqual('Wednesday') // what is the index of the selected daysOfWeek?
+      });
+
+      it("stack methods", function() {
+          var stack = [];
+          stack.push("second");
+          stack.push("first");
+
+          expect(stack[0]).toEqual('___') // what will be the first value of the stack?
+          expect(stack.pop()).toEqual('___') // what will be the first value popped off the stack?
+          expect(stack.pop()).toEqual('___') // what will be the second value popped off the stack?
+      });
+
+      it("queue methods", function() {
+          var queue = [];
+          queue.push("first");
+          queue.push("second");
+          queue.unshift("third");
+
+          expect(queue.length).toEqual('___') // what will be the length of the queue array?
+          expect(queue.shift()).toEqual('___') // what will be shifted out first?
+          expect(queue.shift()).toEqual('___')  // what will be shifted out second?
+          expect(queue.length).toEqual('___') // what will be the length of the queue array?
+      });
+
+    });
+
+  </script>
+
+  </body>
+</html>
