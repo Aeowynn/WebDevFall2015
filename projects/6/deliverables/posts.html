@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" charset="utf-8"></script>
+     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  </head>
+  <body>
+      <div class="container">
+          <h1>JSON API Posts Example</h1>
+          <div class="posts"></div>
+      </div>
+
+  <script type="text/javascript">
+  var root = 'http://jsonplaceholder.typicode.com';
+  
+  $.ajax({
+    url: root + '/posts/',
+    method: 'GET'
+  }).then(function(data) {
+        data.map(function(obj) {
+            var postApi=obj['id'],
+                titleApi = obj['title'],
+                bodyApi = obj['body'];
+            
+            $('.posts').append('<div class="post" id="'+postApi+'"></div>');
+            
+            $('#'+postApi).append('<div class="title">' + titleApi +'</div>');
+            $('#'+postApi).append('<div class="body">' + bodyApi + '</div>');
+            
+            $('#'+postsApi).append('<button class="remove" id="'+postApi+'">Remove</button>');
+    
+    console.log(titleApi, bodyApi);
+        })
+  });
+  </script>
+
+  </body>
+</html>
