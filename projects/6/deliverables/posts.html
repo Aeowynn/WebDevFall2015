@@ -20,20 +20,28 @@
     method: 'GET'
   }).then(function(data) {
         data.map(function(obj) {
-            var postApi=obj['id'],
-                titleApi = obj['title'],
-                bodyApi = obj['body'];
+            var id =obj['id'],
+                title = obj['title'],
+                body = obj['body'];
             
-            $('.posts').append('<div class="post" id="'+postApi+'"></div>');
+            $('.posts').append('<div class="postId" id="'+ id +'"></div>');
+            $('#'+id).append('<div class="title"><a href="post.html?id='+ id +'">'+ title +'</a></div>');
+            $('#'+id).append('<div class="body">'+ body +'</div>');
             
-            $('#'+postApi).append('<div class="title">' + titleApi +'</div>');
-            $('#'+postApi).append('<div class="body">' + bodyApi + '</div>');
-            
-            $('#'+postsApi).append('<button class="remove" id="'+postApi+'">Remove</button>');
-    
-    console.log(titleApi, bodyApi);
+            $('#'+id).append('<button class="remove" id="'+ id +'">Remove</button>');
         })
+        
+    removePost();
   });
+  
+    function removePost() {
+        $('.remove').on('click', function() {
+            var postDiv = $(this).parent();
+            $(postDiv).slideUp();
+            //var id = this.id;
+            //$('#postId'+id).slideUp();
+        })
+    }
   </script>
 
   </body>
