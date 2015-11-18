@@ -2,6 +2,20 @@ body {
 	background-color: rgb(236,208,155);
 }
 
+.nav a {
+	color: rgb(192,41,66);
+    font-size: 11px;
+    font-weight: bold;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header {
+	max-height: 500px;
+}
+
 h1 {
 	margin: 5px;
 	padding: 0;
@@ -10,7 +24,7 @@ h1 {
 	border-bottom: 2px solid rgb(83,119,122);
 }
 
-p {
+#intro {
 	padding: 10px;
 
 }
