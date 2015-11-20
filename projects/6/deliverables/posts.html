@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>API</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" charset="utf-8"></script>
-     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  </head>
-  <body>
-      <div class="container">
-          <h1>JSON API Posts Example</h1>
-          <div class="posts"></div>
-      </div>
+    <head>
+        <meta charset="utf-8">
+        <title>API</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+    <body>
+        
+        <div class="navbar">
+            <ul>
+                <li><img src="http://static.tumblr.com/3uhl9dd/7Sxm849rv/cuppy.jpg"></li>
+                <li> <em><b>The Curious Cupcake</b></em> </li>
+                <li><a href="index.html"> Homepage </a></li>
+                <li><a href="index.html"> About </a></li>
+                <li><a href="index.html"> Help </a></li>
+            </ul>
+        </div>
+        
+        <div class="container">
+            <header>
+                <h1>Blog: Sharing the Secrets of the Cupcake</h1>
+                <p class="info"> What gives cupcakes that delicious, fluffy texture? 
+                How do you achieve perfectly sugary frosting? And how the heck do you inject
+                syrupy goodness into each cupcake without making a mess? Read on to find out! </p>
+                <p class="info">To expand a post, click on its title.</p>
+            </header>
+            <div class="posts"></div>
+        </div>
 
-  <script type="text/javascript">
-  var root = 'http://jsonplaceholder.typicode.com';
+    <script type="text/javascript">
+    var root = 'http://jsonplaceholder.typicode.com';
   
-  $.ajax({
-    url: root + '/posts/',
-    method: 'GET'
-  }).then(function(data) {
+    $.ajax({
+        url: root + '/posts/',
+        method: 'GET'
+    }).then(function(data) {
         data.map(function(obj) {
             var id =obj['id'],
                 title = obj['title'],
