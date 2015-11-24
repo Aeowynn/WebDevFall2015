@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body class="postsPage">
+
+  <div class="container">
+    <h1>The Hotpink Blog</h1>
+    <div class="posts"></div>
+  </div>
+
+  <script type="text/javascript">
+  var root = 'http://jsonplaceholder.typicode.com';
+
+  $.ajax({
+    url: root + '/posts/',
+    method: 'GET'
+  }).then(function(data) {
+
+    data.map(function(obj) {
+      var id = obj['id'], title = obj['title'], body = obj['body'];
+      var tilt = Math.floor(Math.random() * (30 - 3) + 3)
+
+      var op = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
+      var option = ['', '+', '-'];
+
+      if(op === 1) {
+        $('.posts').append('<div class="post" style="border: 2px solid #000; -webkit-transform: rotate('+option[op]+tilt+'deg);" id="postId'+ id +'"> </div>')
+      } else {
+        $('.posts').append('<div class="post" style="box-shadow: 0 0 30px #333; -webkit-transform: rotate('+option[randNumOpt]+tilt+'deg);" id="postId'+ id +'"> </div>')
+      }
+
+      $('#postId'+id).append('<div class="title"> <a href="post.html?id=' + id +'">' + title + '</a> </div>')
+      $('#postId'+id).append('<div class="body">' + body + '</div>')
+      $('#postId'+id).append('<button class="remove" id="'+ id +'">Remove</button>')
+    })
+
+    removePost();
+  });
+
+  function removePost() {
+    $('.remove').on('click', function(){
+      var postDiv = $(this).parent();
+      $(postDiv).slideUp();
+    })
+  }
+
+
+  </script>
+
+  </body>
+</html>
