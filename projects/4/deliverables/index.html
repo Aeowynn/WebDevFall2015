@@ -1,244 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Simple Blog</title>
-	<style type="text/css">
-		body {
-			background: #eee;
-		}
-		* {
-			-webkit-font-smoothing: antialiased;
-			-moz-font-smoothing: antialiased;
-			font-smoothing: antialiased;
-			font-family: Helvetica, sans-serif;
-			line-height: 1.5em;
-			color: #333;
-		}
-		a {
-			color: #60AB7E;
-			text-decoration: none;
-			border-bottom: 1px dotted #60AB7E;
-		}
-		h1, h2 {
-			margin: 0;
-			padding: 0;
-			font-weight: 100;
-		}
-		#logoHeading {
-			font-size: 50px;
-		}
-		#pageloader {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: #eee;
-		}
-		#posts {
-			padding: 5px 20px;	
-		}
-		#posts .post {
-			position: relative;
-			border: 1px solid #ddd;
-			padding: 5px 20px;
-			margin: 8px 0px;
-			background: #fff;
-			box-shadow: 2px 2px 0px #999;
-		}
-		#posts .post .published, #content .published {
-			position: absolute;
-			right:15px;
-			top:15px;
-			color:#888;
-		}
-		#posts .post h2 {
-			margin-top: 35px;
-		}
-		#navigation {
-			display: none;
-		}
-		#header {
-			padding: 5px 20px;
-		}
-		#content {
-			position: relative;
-			margin-top: 50px;
-			padding: 5px 20px;
-			border: 1px solid #ddd;
-			background: #fff;
-			box-shadow: 2px 2px 0px #999;
-			display: none;
-		}
 
-		#content h1 {
-			margin-top: 35px;
-			color: #1F4052;
-			font-weight: 400;
-		}
+    <head>
+        <title>Practice Blog</title>
+        <style type="text/css">
+            body {
+                background: #eee;
+            }
+            * {
+                -webkit-font-smoothing: antialiased;
+                -moz-font-smoothing: antialiased;
+                font-smoothing: antialiased;
+                font-family: Helvetica, sans-serif;
+                line-height: 1.5em;
+                color: #333;
+            }
+            a {
+                color: #60ab7e;
+                text-decoration: none;
+                border-bottom: 1px dotted #60ab7e;
+            }
+            h1, h2 {
+                margin: 0;
+                padding: 0;
+                font-weight: 100;
+            }
+        
+        </style>
+    
+    </head>
+    
+    <body>
+        <!-- Hides page until the proper view is rendered -->
+        <div id="pageloader"></div>
+        
+        <!-- Header -->
+        <div id="header">
+            <h1 id="logoHeading"> Simple Blog </h1>
+            
+            <div id="navigation">
+                <a id="loadHomepage" href="/">Homepage</a>
+            </div>
+        </div>
+        
+        <!-- Show mini of each blog post in #posts DIV -->
+        <div id="posts">
+            <div id="tagsFilter"></div>
+            
+            <div class="post">
+                <div class="published">Saturday, Septermber 26!</div>
+                <h2><a href="#/posts/2015/september/26-my-first-post.html" title="My First Post">My First Post</a></h2>
+                <p>A Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim, justo ac volutpat facilisis, libero nunc volutpat lacus, ut tristique nunc lacus vel erat. Nulla facilisi. Pellentesque a facilisis ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                <div class="tags" data-tags="js, html, ruby"></div>
+            </div>
+            
+            <div class="post">
+                <div class="published">Saturday, September 26, 2015</div>
+                <h2><a href="#/posts/2015/september/26-my-first-post.html" title="My First Post">Some Other Post</a></h2>
+                <p>Nulla facilisi. Pellentesque a facilisis ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                <div class="tags" data-tags="html, ruby"></div>
+            </div>
 
-		/* Icons */
-		#tagsFilter .icon {
-			cursor: pointer;
-		}
+            <div class="post">
+                <div class="published">Saturday, September 26, 2015</div>
+                <h2><a href="#/posts/2015/september/26-a-simple-html-and-javascript-blog.html" title="A Simple HTML and JavaScript blog">A Simple HTML and JavaScript blog!</a></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices nibh sit amet ultricies euismod. Nulla dui sem, rutrum ac tempus at, consectetur id orci. Donec placerat sodales arcu, viverra efficitur enim. Proin tristique diam eu dignissim porttitor. Curabitur ultricies gravida neque, ut dignissim justo congue ac.</p>
+                <div class="tags" data-tags="js, html, css"></div>
+            </div>	
+            
+        </div>
+        
+        <!-- Load Content into this #content DIV -->
+        <div style="padding: 5px 20px;">
+            <div id="content"></div>
+        </div>
 
-		#tagsFilter div, .tags div {
-			margin-right: 10px;
-			width: 32px;
-			height: 32px;
-			display: inline-block;
-			margin-bottom: 15px;
-		}
-
-		#tagsFilter div.icon.icon-js, .tags div.icon.icon-js {
-			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABe0lEQVRYR+2XQU7CYBCF37R1IwslsWzFE1B2CAs5AkfQE1Bu0J5AjsAR9ATWhY3LegPcWhJwARuRZ9pCpSTaEkjQ5O+unabvzdd501T41gogqOEQBxkIwxYPob3SVAYUAUVAEfg3BHpiPvXXNybDlg3gNrlGF8asL+VgEp+NLjtYaE6RFV+QAB0xfTdroNEG9AcAqTmOrdPURJjWf930BQ1kpB/F9NtcCRjTciTKsDkE5DwBwgEACyJW3ndmdwNkXSp+wFGzD0o3T3Czvg8DA6n4N3Hj40YVc70D0E5p5Dja3UAi4AGfrpjP3kqPYdMD5CqPSEEDfAfkZDnx2RnIjAeHEAyigU1nZC8EyDqOFhN86HfQ6MmZbycxpA1jZmFeugboJCb5KqZfjRKBeWm8JwLfUdtAXIMxvUijl4nh+p742UbBVxCPmAPQAyiA1gWks4zcEJo40Kf3cRzjzo+jupPXfVTfwkCRx21/jzKgCCgCisAfIHDQ33O8fAGI9QZO8bTcZgAAAABJRU5ErkJggg==');
-			background-color: #333;
-		}
-
-		#tagsFilter div.icon.icon-ruby, .tags div.icon.icon-ruby {
-			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADfklEQVRYR7VXUVIaQRDtnjXwkzL4kUBVXApvgCdQb4A3WNn8h5xAvAH5D7g30BuIJ5AbSMBUgfmQsvIDcadTPetQ4zDLbgzZL3aY6Xn9uvt1L4L1TP3mOSAG9vpG3omi8rh3YtpC82Xqhw1AiEhCVLnrtrIu/bn76ZD3vL/71s/aO9kNOyggAIKgPO5e6v1LAA+loLTYFrdAeEIEh/8FAEIfkM4Lj3JvZxbNGMQSwNQPL/i9PO42FBMAYCJ1eZiXAdPe1A/ZeyqPu8dLAJr6wmNc08im1Wa7POq111GbFwDTrxlNmPaGOhRoUm96zIeKv+K2BvRaBtj+/K3XNkOaOJyEAk3qzUvuPwZ1EKL+YdyL0ljIw8C93wxAysGHH9HASngVCpxUwyESzQBhmZnLjQRcFavregNhTf1EGqaGKs0GQYMQS8heSCEvCgu5vzOJXhjiPCgsZGSv68uyGHioBLV5QTQqo17HBMjri4K4EVIcqyqY+iHT/E5npt6cZiAvgEm12Sou5OWKY354QQTfOS8UADszrVhF5XHXqYxZDLBj9lm74kwdWGammfnshYhl304iBrkOgCuJXRX3QoonfrMPhAOzZFxllCcErjJWcoxQY7FbkWIVCpUc3kBIbJj6bgqJGZ51DNhnkmSny8Iirps58YIBNs6UA8Dnyqi3py/jWkYSQ7vppAHgdUJZMzVkUm3eAsBXuyJWACRV0Rxw/WspTgtDGgDbey5n1eDGPdU9zccJgBOIPO8G43hfJ58rDHkAuGxlAlAsKNR4UBl3j561YqVDugDYnXTih1eIdJ3W2JwMaG2Yb3sDAOrouLkSi/emJWyST9iqjLqJZDueVAC6zk2ZtkvLZsDMFVNu101MawHYMm2Liw3A7HzcZbXcpnnP65kAbJk2w2AD0NLrGnBeFQJ9yBwg5tsi0A3GBKAbV/FRRnq2zBrpcjGgQWiZLj7FHd1iTQC68823vJYtt/8UAn3YlGmJxKN1YAJg+gVh5JLbjQAwZVoQnL35LftPW1uqvIieZjy+SYRTl9xuDICWaSJUHyIeoBrXYqCkuyHVXXK7UQBaWono2iOhxvYYZRsRD0zpXnep+V9mGboMsUwD4CkBfUGAEv8GoLOs74i/VsI0L5TiJTJNyR7EdXK70RBoY88DxhW/C4lHeT5QN8bAUht2QzVu5/mQTWPhD6w1pbr07YSqAAAAAElFTkSuQmCC');
-		}
-
-		#tagsFilter div.icon.icon-html, .tags div.icon.icon-html {
-			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACkklEQVRYR+1XXZLSQBD+GuKz2Rtwg4UTbDiBeALHE8g+JJYWlLGS0pI8uJ7A8QSyJzCeQPYE7g2M70Bv9Uz4C0RIhHUf5IlJMj1fvv766w6h8FODDz1Q42vxeqU18ycdB/1D9tA2gCQEoQfGQQG2DiFcATgH+LmOAr0PRAkA9nQUePs277qvhqMUoAtzj+dPdfxy/Kc4pwUAZJhxV78LJmUgTg1Azs3QnHZ0+Op2F4j7AAAwT+A86urwMiuCuB8ARg880XHQ+XcA7MmXOvKlSpa/4zMQvm9h6rR2lidjrGM/PCmAMrWb8mRKHy4A9XrURoOeAPBA3ALTXherZFTECkxSiinmfL3whqUG1GCUgehxpaD1H8505J/JdgNADRIPhG/149XYyejq2E8LAPi79ICVn6+tmULZsH6UGiRG0SIsNRwpgD6b+03nTEzHxgE2Y+YRKgMAfkoOdey/NYwB0nCEuWupbRV+dDGb/gJwg6bj/R2AwegKhDYY4l799Q6nI5/MmxPe2I6HLuaciajUMJGmowHOpBWrYTIG2K3MQDGjewFg7mJOt2hQD3Meo0F9HfvKArWtfaNN58DLNSAMgGSouDmIAZuKzDLmp1JROg7c+gCWQ0VRlCKoQgpm3DFvTmjryO8ZP2nSj9VzOQOLtBp66UJSV60K8imnCGBt/UJqW5mDSP7nWtmertQw4RIAlkYjQMA1w8TmWkSXGqcE2YZTXC8EtLrumhibHcjbBJDTVsNO6m+ZcUcqZ2XFtoTO60estPNGR76wbK3Y2LEYyXQqF1XuAfXG8jIcMq7bVGg4zmQxnh19ICk7/+HPA8tUrLlXpazuefg/A1UZeHaikezLAUPpET7Pd+mB+TfAqvixegebGhs/PlmSVQAAAABJRU5ErkJggg==');
-		}
-
-		#tagsFilter div.icon.icon-css, .tags div.icon.icon-css {
-			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEklEQVRYR+1XUW7aUBCccVNVVTFNbuCcoOQEOCcovQH9DP6IOUHgBHE+gM/SG5ATNDlB6An6jkBjSxEh9VTPBgIUSNVKJVLt333rnTc7s2vT68ZDAu+wg0fCkIfdWDuoPS9ZACgYKBgoGHi+DAj6DDmRCUpDO7a8TlIB1CLxPh9j+i45IZwXV+bktZnGa6RCgG8FXAOKTKM88M61j1exDzAkUF2cvGsZEHFsTtyrdSPa68QWxJnEoxm4xXNeJ45AVEzD9dflr47+XwBIaJvAbXm9Ow96+EQge5GAAbjXhCYtCv63oOxlZ9LJDcl9QQZkH6lC0GmbRimyYEiczvMBQyDcyoDGpQPT5GjblpQ0MkH5IKc2GazSOr9EJ6mTaWRbsmnhLTFg+2ap83qxT+HLti0p8aMJSv0FfdRJ1fP+y2DsHtmLZPHubW1d/23sjwFktEp9OC/bVoRZod6dR02GcxBwWhi/uXwEkoSEzv+6BavM2A8LUO1M8VORLp7JgN67TQvksHs7WmzJUyLsz/or4RLOXoj0IZypPC82tZ1wYQI39DpJHY4MUo5ARXl+ZlnfumZVW+ttCH2wt9lkQxBV03CPN8QHAAczfSxbNKmQunlyDsz7C+diaRBRZwRqeRxDSC1M3OvMNb3Yh3D6GFcf0/zc0j+qUBpZy/4WgH/1nfh8d0HBQMFAwcD/w8BOf8+Brz8BYN9y7o8f25EAAAAASUVORK5CYII=');
-		}
-	</style>
-</head>
-<body>
-<!-- Page loader, use this to hide the page until the proper view is rendered -->
-<div id="pageloader"></div>
-
-<!-- Page header -->
-<div id="header">
-	<h1 id="logoHeading">SPA Simple Blog</h1>
-
-	<div id="navigation">
-		<a id="loadHomepage" href="/">Homepage</a>
-	</div>	
-</div>
-
-<!-- Show a post of each blog post in the #posts DIV -->
-<div id="posts">
-	<div id="tagsFilter"></div>
-
-	<div class="post">
-		<div class="published">Saturday, September 26, 2015</div>
-		<h2><a href="#/posts/2015/september/26-my-first-post.html" title="My First Post">My First Post</a></h2>
-		<p>A Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim, justo ac volutpat facilisis, libero nunc volutpat lacus, ut tristique nunc lacus vel erat. Nulla facilisi. Pellentesque a facilisis ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-		<div class="tags" data-tags="js, html, ruby"></div>
-	</div>
-	
-	<div class="post">
-		<div class="published">Saturday, September 26, 2015</div>
-		<h2><a href="#/posts/2015/september/26-my-first-post.html" title="My First Post">Some Other Post</a></h2>
-		<p>Nulla facilisi. Pellentesque a facilisis ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-		<div class="tags" data-tags="html, ruby"></div>
-	</div>
-
-	<div class="post">
-		<div class="published">Saturday, September 26, 2015</div>
-		<h2><a href="#/posts/2015/september/26-a-simple-html-and-javascript-blog.html" title="A Simple HTML and JavaScript blog">A Simple HTML and JavaScript blog!</a></h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices nibh sit amet ultricies euismod. Nulla dui sem, rutrum ac tempus at, consectetur id orci. Donec placerat sodales arcu, viverra efficitur enim. Proin tristique diam eu dignissim porttitor. Curabitur ultricies gravida neque, ut dignissim justo congue ac.</p>
-		<div class="tags" data-tags="js, html, css"></div>
-	</div>	
-
-</div>
-
-<!-- Load Content into this #content DIV -->
-<div style="padding: 5px 20px;">
-	<div id="content"></div>
-</div>
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="Text/javascript">
+            (function(){
+                //load homepage without a network request
+                $("#loadHomepage").on('click', function(e) {
+                    e.preventDefault();
+                    window.location.hash = '';
+                    document.title = document.title.split('-')[0];
+                
+            }
+        
+        
+        
+        
+        </script>
+        
+        
+        
+    </body>
 
 
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
-	(function(){
 
-		// load homepage without a network request
-		$("#loadHomepage").on('click', function(e) {
-			e.preventDefault();
-			window.location.hash = '';
-			document.title = document.title.split('-')[0]; 
 
-			$('#content').empty();
-			$('#posts').show();
-		});
-
-		function pageRouter() {
-			var page = window.location.hash,
-				link;
-
-			if(page){
-				link = $('a[href="'+page+'"]');
-				if(link[0] !== undefined){
-					var postUrl = page.split("#")[1];
-					var title = link.attr('title');
-					document.title += ' - ' + title; 
-					$('#content').show();
-					$('#pageloader').show();
-					$("#content").load(postUrl);
-					$('#navigation').show();
-					$('#posts').hide();
-				} else {
-					window.location = '/404.html';
-				};
-			} else {
-				$('#content').empty().hide();
-				$('#posts').show();
-				$('#navigation').hide();
-			};
-
-			$('#pageloader').hide();
-		}
-
-		function renderPostTags() {
-			var tags = $('.tags'),
-				uniqTags = [],
-				postsVisible = $('#posts').is(":visible");
-
-			if(postsVisible){
-				tags.each(function(i, tag) {
-				  $(tag).data('tags').split(',').map(function(tagData) {
-				    var tagName = tagData.replace(/^\s+|\s+$/gm,'');
-				    if (uniqTags.indexOf(tagName) < 0) { uniqTags.push(tagName); };
-				    $(tag).append('<div class="icon icon-'+tagName+'" title="'+tagName+'"></div>');
-				  });
-				});
-
-				$(uniqTags).each(function(i, tag) {
-					$('#tagsFilter').append('<div class="icon icon-'+tag+'" title="'+tag+'"></div>');
-				});
-			};
-		}
-
-		function filterPosts(){
-			$('#tagsFilter .icon').on('click', function(){
-				var posts = $('.post .tags').find("[title='"+this.title+"']").closest('.post');
-				$('.post').hide();
-				$(posts).each(function(i, post) {
-					$(post).show();
-				});
-			});
-		}
-
-		$(function(){
-			// On document ready initialize functions
-			renderPostTags();
-			filterPosts();
-			pageRouter();
-
-			// In case a user clicks the back or forward button
-			window.onhashchange = function() {
-				pageRouter();
-			}
-		});
-
-	}());
-</script>
-
-</body>
 </html>
