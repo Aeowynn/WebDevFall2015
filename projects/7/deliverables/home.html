@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Phonebook</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel ="stylesheet" href="assets/css/style.css">
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div id="header" class="navbar">
+				<h1 class="text-center"> The Phonebook App </h1>
+			</div>
+
+			<div id="info" class="col-md-12 col-sm-12 col-xs-12">
+				<p> Welcome to the Phonebook App! Here you'll be able to search for contacts, view all contacts, and edit your phonebook! Enjoy!</p>
+			</div>
+
+			<div id="search_form" class="col-md-12 col-sm-12 col-xs-12">
+				<div class="text-center">
+					<p>Find a person by first or last name:</p>
+					<input class="tf name no-margin" type="text" name="search_name" placeholder="Enter Name Here">
+					<input class="submitButton" type="submit" value="Search">
+				</div>
+			</div>
+
+			<div id="display_all" class="col-md-12 col-sm-12 col-xs-12">
+				<div class="text-center">
+					<p> Or display all the contacts:</p>
+					<input class="SubmitButton" type="submit" value="Display All">
+				</div>
+			</div>
+
+	<!--
+			<div class="first_name"></div>
+			<div class="profile_pic"></div>
+	-->
+
+			<div id="footer" class="navbar">
+				<h3>Footer</h3>
+			</div>
+
+		<script type="text/javascript">
+		$.ajax({
+			url: 'api/v1/phonebook/data.json',
+			method: 'GET'
+		}).then(function(data) {
+			data.map(function(row) {
+				var first_name = row['first_name']
+				$('.first_name').append(first_name + "<br>");
+				var profile_pic = row['profile_pic']
+				$('.profile_pic').append("<img src='assets/images/profile_pictures" + profile_pic + "<br>");
+			})
+		});
+		</script>
+
+	</body>
+
+</html>
