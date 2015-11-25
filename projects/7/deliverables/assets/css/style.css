@@ -41,3 +41,36 @@ body {
 	clear:both;
 	border:solid 4px #568165;
 }
+
+/* Below is for the show-all.html page */
+.contact_id {
+	border: 2px solid #568165;
+	padding: 10px;
+	padding-bottom: 25px;
+	margin-bottom: 5px;
+	background-color: #9a6308;
+}
+
+.contact_id img {
+	float: right;
+	border: 1px solid #252F17;
+}
+
+.contact_id .name {
+	font-weight: 50px;
+	border-bottom: 2px dashed #252F17;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.contact_id .phone {
+	padding-left: 20px;
+}
+
+.contact_id .address {
+	padding-left: 20px;
+}
+
+.contact_id .email {
+	padding-left: 20px;
+}
