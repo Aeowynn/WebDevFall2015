@@ -42,13 +42,28 @@ body {
 	border:solid 4px #568165;
 }
 
-/* Below is for the show-all.html page */
+#results {
+    border-bottom: 2px dashed #252F17;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+/* Below is for the search_results.html page */
+.results_id {
+    border: 2px solid #568165;
+}
+
+
+/* Below is for the show_all.html page */
 .contact_id {
 	border: 2px solid #568165;
 	padding: 10px;
+    margin: 20px;
 	padding-bottom: 25px;
-	margin-bottom: 5px;
+	margin-bottom: 25px;
 	background-color: #9a6308;
+    position: relative;
+    display: inline-block;
+    width: 30%;
 }
 
 .contact_id img {

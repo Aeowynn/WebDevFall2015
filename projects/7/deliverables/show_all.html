@@ -13,8 +13,9 @@
 			<div id="header" class="navbar">
 				<h1 class="text-center"> The Phonebook App </h1>
 			</div>
-
+            
 			<div id="all_contacts" class="col-md-12 col-sm-12 col-xs-12">
+                <h3 id="results"> Results: </h3>
 				<div class="contacts"></div>
 			</div>
 
@@ -37,7 +38,7 @@
 		    		email = row['email'],
 		    		phone = row['phone'],
 		    		picture = row['profile_pic']
-		    	$('.contacts').append('<div class="contact_id" id="' + id + '"></div>')
+		    	$('.contacts').append('<div class="contact_id" id="' + id + '"></div>');
 		    	$('#'+id).append('<div class="profile_pic"><img src="assets/images/profile_pictures/' + id + '.jpg">')
 		    	$('#'+id).append('<div class="name">' + last_name + ' , ' + first_name + '</div>');
 		    	$('#'+id).append('<div class="address">' + address + '</div>');

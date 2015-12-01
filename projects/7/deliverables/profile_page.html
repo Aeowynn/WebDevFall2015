@@ -12,14 +12,10 @@
 		<div class="container-fluid">
 			<div id="header" class="navbar">
 				<h1 class="text-center"> The Phonebook App </h1>
-                <p><a href="home.html">Go To Homepage</a></p>
 			</div>
             
-            <h3 id="results"> Results: </h3>
-            <ol>
-                <div class="resdiv">
-                </div>
-            </ol>
+            <div class="profilediv">
+            </div>
 
 			<div id="footer" class="navbar">
 				<h3>Footer</h3>
@@ -27,16 +23,18 @@
 			
 		</div>
         
-        
         <script type="text/javascript">
-            $.ajax({
-		  	url: 'api/v1/phonebook/data.json',
+        $.ajax({
+            url: 'api/v1/phonebook/data.json',
 		  	method: 'GET'
 		}).then(function(data) {
-            var found = window.location.href.split('=')[1].toLowerCase();
+            var found = window.location.href.split('=')[1];
+            console.log("Found: " + found);
             data.filter(function(r) {
-                return r.first_name.toLowerCase() === found || r.last_name.toLowerCase() === found;
+                console.log(r.id);
+                return String(r.id) === found;
             }).map(function(row) {
+                console.log("Made it!");
                 var id = row['id'],
 		    		last_name = row['last_name'],
 		    		first_name = row['first_name'],
@@ -44,18 +42,20 @@
 		    		email = row['email'],
 		    		phone = row['phone'],
 		    		picture = row['profile_pic']
-                $('.resdiv').append('<li><div class="results_id" id="' + id + '"></div>');
+                $('.profilediv').append('<div class="profile_id" id="' + id + '"></div>');
                 $('#'+id).append('<div class="profile_pic"><img src="assets/images/profile_pictures/' + id + '.jpg">')
 		    	$('#'+id).append('<div class="name">' + last_name + ' , ' + first_name + '</div>');
 		    	$('#'+id).append('<div class="address">' + address + '</div>');
 		    	$('#'+id).append('<div class="phone">' + phone + '</div>');
 		    	$('#'+id).append('<div class="email">' + email + '</div>');
-                $('#'+id).append('<div class="idlink"><a href="profile_page.html?id=' + id + '">Go To Profile Page</a></div></li>');
+                $('#'+id).append('<div class="idlink"><a href="profile_page.html?id=' + id + '">Go To Profile Page</a></div>');
             })
             
         });
         
         </script>
+        
+        
         
 	</body>
 

@@ -21,9 +21,11 @@
 			<div id="search_form" class="col-md-12 col-sm-12 col-xs-12">
 				<div class="text-center">
 					<p>Find a person by first or last name:</p>
+                    <form action="search_results.html" method="GET">
 					<input id="search_name" class="tf name no-margin" type="text" name="search_name" placeholder="Enter Name Here">
 					<input id="submitButton" class="submitButton" type="submit" value="Search">
-				</div>
+                    </form>
+                </div>
 			</div>
 
 			<div id="display_all" class="col-md-12 col-sm-12 col-xs-12">
@@ -47,32 +49,20 @@
 			url: 'api/v1/phonebook/data.json',
 			method: 'GET'
 		}).then(function(data) {
-			$.getJSON('api/v1/phonebook/data.json', function(data) {
-				console.log(data);
-			})
-			findName(data);
+			//var search_text = $('#search_name')
+            var search_word = document.getElementById('search_name').value;
+            console.log("found:" + search_word);
+            findName(search_word);
 			displayAll(data);
+        });
+        
+        //function findName(search_word) {
+        //    $('#submitButton').on('click', function() {
+        //        console.log("Here!" + search_word);
+        //        window.location.href = "search_results.html?id=" + search_word + "/";
+        //    })
 
-			var search_text = $('#search_name')
-			var first_name = row['first_name']
-			$('.first_name').append(first_name + "<br>");
-			var profile_pic = row['profile_pic']
-			$('.profile_pic').append("<img src='assets/images/profile_pictures" + profile_pic + "<br>");
-		});
-		
-		function findName(data) {
-			$('#submitButton').on('click', function() {
-				var search_text = document.getElementById("search_name").value;
-				var contact_id;
-				for (i=0; i<data.length; i++) {
-					if (search_text == data[i].first_name) {
-						console.log("Found it!" + data[i].first_name);
-						contact_id = data[i].id;
-					}
-				}
-				window.location.href = "search_results.html?id="+contact_id;
-			})
-		};
+        //};
 
 		function displayAll(data) {
 			$('#display_all_button').on('click', function() {
