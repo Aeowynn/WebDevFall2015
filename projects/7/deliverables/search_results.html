@@ -15,14 +15,11 @@
                 <p><a class="homepage_link" href="home.html">Go To Homepage</a></p>
 			</div>
             
-            <div id="results">
-                	<h3> Results: </h3>
-            </div>
             <div class="outer_container col-md-12 col-sm-12 col-xs-12">
-	            <ol>
-	                <div class="resdiv">
-	                </div>
-	            </ol>
+            	<div id="results">
+                	<h3> Results: </h3>
+            	</div>
+	            <ol class="resdiv"> </ol>
             </div>
 			
 		</div>
@@ -44,13 +41,8 @@
 		    		email = row['email'],
 		    		phone = row['phone'],
 		    		picture = row['profile_pic']
-                $('.resdiv').append('<li><div class="results_id" id="' + id + '"></div>');
-                $('#'+id).append('<div class="profile_pic"><img class="img-responsive" src="assets/images/profile_pictures/' + id + '.jpg">')
-		    	$('#'+id).append('<div class="person_info"> <div class="name">' + first_name + ' ' + last_name + '</div>');
-		    	$('#'+id).append('<div class="address">' + address + '</div>');
-		    	$('#'+id).append('<div class="phone">' + phone + '</div>');
-		    	$('#'+id).append('<div class="email">' + email + '</div>');
-                $('#'+id).append('<div class="idlink"><a href="profile_page.html?id=' + id + '">Go To Profile Page</a></div></div></li>');
+                $('.resdiv').append('<div class="results_id" id="' + id + '"></div>');
+                $('#'+id).append('<li><img class="img-responsive profile_pic" src="assets/images/profile_pictures/' + id + '.jpg"> <p class="person_info">' + first_name + ' ' + last_name + '<br>' + address + '<br>' + phone + '<br>'+ email + '<br><a href="profile_page.html?id=' + id + '">Go To Profile Page</a></p></li>');
             })
             
         });

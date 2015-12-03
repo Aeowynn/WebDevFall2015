@@ -32,12 +32,20 @@ body {
 }
 
 #results {
-    border-bottom: 1px solid #252F17;
+    border-bottom: 2px solid #3b8686;
     margin-bottom: 10px;
+}
+
+#results h3 {
+	margin-left: 15px;
 }
 
 .homepage_link {
 	float: right;
+	font-style: italic;
+}
+
+a {
 	font-style: italic;
 }
 
@@ -50,32 +58,38 @@ body {
 /* Below is for the search_results.html page */
 
 .results_id {
-    border-bottom: 1px solid #252f17;
+    border-bottom: 2px solid #3b8686;
     padding: 2%;
 }
 
-.results_id img {
-	position: relative;
-	display: inline-block;
+ol {
+	white-space: nowrap;
+	padding: 0 40px;
+}
+
+li img {
+	vertical-align: middle !important;
+	display: inline-block !important;
+	width: 20%;
 }
 
 .results_id .name {
 	font-size: 18px;
 	font-weight: 50px;
-	position: relative;
-	display: inline-block;
 }
 
-.person_info {
-	position: relative;
-	display: inline-block;
+li .person_info {
+	white-space: normal;
+	vertical-align: middle !important;
+	display: inline-block !important;
+	margin-left: 5px;
 }
 
 /* Below is for the individual profile_page.html */
 
 .profile_name {
 	font-size: 28px;
-	border-bottom: 1px solid #252f17;
+	border-bottom: 2px solid #3b8686;
 	margin: 5px;
 }
 

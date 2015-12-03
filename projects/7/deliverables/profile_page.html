@@ -28,7 +28,6 @@
             var found = window.location.href.split('=')[1];
             console.log("Found: " + found);
             data.filter(function(r) {
-                console.log(r.id);
                 return String(r.id) === found;
             }).map(function(row) {
                 console.log("Made it!");
@@ -39,7 +38,7 @@
 		    		email = row['email'],
 		    		phone = row['phone'],
 		    		picture = row['profile_pic']
-                $('.profilediv').append('<div class="profile_id" id="' + id + '"></div>');
+                $('.outer_container').append('<div class="profile_id" id="' + id + '"></div>');
 		    	$('#'+id).append('<div class="profile_name">' + first_name + ' ' + last_name + '</div>');
 		    	$('#'+id).append('<div class="ind_pic"><img class="img-responsive" src="assets/images/profile_pictures/' + id + '.jpg">')
 		    	$('#'+id).append('<div class="name">' + first_name + ' ' + last_name + '</div>');
