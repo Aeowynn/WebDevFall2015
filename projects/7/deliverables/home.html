@@ -14,10 +14,6 @@
 				<h1 class="text-center"> The Phonebook App </h1>
 			</div>
 
-			<div id="info" class="col-md-12 col-sm-12 col-xs-12">
-				<p> Welcome to the Phonebook App! Here you'll be able to search for contacts, view all contacts, and edit your phonebook! Enjoy!</p>
-			</div>
-
 			<div id="search_form" class="col-md-12 col-sm-12 col-xs-12">
 				<div class="text-center">
 					<p>Find a person by first or last name:</p>
@@ -35,34 +31,15 @@
 				</div>
 			</div>
 
-	<!--
-			<div class="first_name"></div>
-			<div class="profile_pic"></div>
-	-->
-
-			<div id="footer" class="navbar">
-				<h3>Footer</h3>
-			</div>
-
 		<script type="text/javascript">
 		$.ajax({
 			url: 'api/v1/phonebook/data.json',
 			method: 'GET'
 		}).then(function(data) {
-			//var search_text = $('#search_name')
             var search_word = document.getElementById('search_name').value;
             console.log("found:" + search_word);
-            findName(search_word);
 			displayAll(data);
         });
-        
-        //function findName(search_word) {
-        //    $('#submitButton').on('click', function() {
-        //        console.log("Here!" + search_word);
-        //        window.location.href = "search_results.html?id=" + search_word + "/";
-        //    })
-
-        //};
 
 		function displayAll(data) {
 			$('#display_all_button').on('click', function() {

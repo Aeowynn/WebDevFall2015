@@ -12,14 +12,11 @@
 		<div class="container-fluid">
 			<div id="header" class="navbar">
 				<h1 class="text-center"> The Phonebook App </h1>
+				<p><a class="homepage_link" href="home.html">Go To Homepage</a></p>
 			</div>
             
-            <div class="profilediv">
+            <div class="outer_container col-md-12 col-sm-12 col-xs-12">
             </div>
-
-			<div id="footer" class="navbar">
-				<h3>Footer</h3>
-			</div>	
 			
 		</div>
         
@@ -43,12 +40,12 @@
 		    		phone = row['phone'],
 		    		picture = row['profile_pic']
                 $('.profilediv').append('<div class="profile_id" id="' + id + '"></div>');
-                $('#'+id).append('<div class="profile_pic"><img src="assets/images/profile_pictures/' + id + '.jpg">')
-		    	$('#'+id).append('<div class="name">' + last_name + ' , ' + first_name + '</div>');
+		    	$('#'+id).append('<div class="profile_name">' + first_name + ' ' + last_name + '</div>');
+		    	$('#'+id).append('<div class="ind_pic"><img class="img-responsive" src="assets/images/profile_pictures/' + id + '.jpg">')
+		    	$('#'+id).append('<div class="name">' + first_name + ' ' + last_name + '</div>');
 		    	$('#'+id).append('<div class="address">' + address + '</div>');
 		    	$('#'+id).append('<div class="phone">' + phone + '</div>');
 		    	$('#'+id).append('<div class="email">' + email + '</div>');
-                $('#'+id).append('<div class="idlink"><a href="profile_page.html?id=' + id + '">Go To Profile Page</a></div>');
             })
             
         });
