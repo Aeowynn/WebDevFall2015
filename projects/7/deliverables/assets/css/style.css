@@ -4,7 +4,6 @@ body {
   color: #0b486b;
   margin: 20 auto;
   padding-bottom: 70px;
-  min-height: 100%;
 }
 
 #info {
@@ -49,11 +48,7 @@ a {
 	font-style: italic;
 }
 
-.outer_container {
-	width: 90%;
-	margin: 0 auto;
-	float: none;
-}
+
 
 /* Below is for the search_results.html page */
 
@@ -95,7 +90,6 @@ li .person_info {
 
 .ind_pic .img-responsive {
 	float: left;
-	width: 30%;
 	margin: 15px;
 }
 
@@ -108,23 +102,18 @@ li .person_info {
 .contact_id {
 	border: 2px solid #0b486b;
 	background-color: #79bd9a;
-	padding: 1%;
-	margin: 3%;
-    position: relative;
-    display: inline-block;
-    width: 26%;
+    margin: 5px;
+    
 }
 
-.contact_id .img-responsive {
-	margin: 0 auto;
-	width: 95%;
-	border: 1px solid #0b486b;
+.profile_pic {
+    align: center;
 }
 
 .contact_id .name {
 	font-weight: 50px;
 	font-size: 18px;
-	text-align: center;
+    text-align: center;
 }
 
 .contact_id .idlink {

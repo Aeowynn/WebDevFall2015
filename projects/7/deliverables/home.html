@@ -36,14 +36,11 @@
 			url: 'api/v1/phonebook/data.json',
 			method: 'GET'
 		}).then(function(data) {
-            var search_word = document.getElementById('search_name').value;
-            console.log("found:" + search_word);
 			displayAll(data);
         });
 
 		function displayAll(data) {
 			$('#display_all_button').on('click', function() {
-				console.log("clicked!");
 				window.location.href = "show_all.html";
 			})
 		};

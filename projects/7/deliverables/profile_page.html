@@ -26,11 +26,9 @@
 		  	method: 'GET'
 		}).then(function(data) {
             var found = window.location.href.split('=')[1];
-            console.log("Found: " + found);
             data.filter(function(r) {
                 return String(r.id) === found;
             }).map(function(row) {
-                console.log("Made it!");
                 var id = row['id'],
 		    		last_name = row['last_name'],
 		    		first_name = row['first_name'],

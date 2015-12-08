@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<title>Phonebook</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel ="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel ="stylesheet" href="assets/css/style.css">
 	</head>
 
 	<body>
@@ -15,7 +15,7 @@
 				<p><a class="homepage_link" href="home.html">Go To Homepage</a></p>
 			</div>
             
-			<div class="outer_container col-md-12 col-sm-12 col-xs-12">
+			<div class="outer_container row">
 				<div id="results">
                 	<h3> Results: </h3>
             	</div>
@@ -37,10 +37,10 @@
 		    		email = row['email'],
 		    		phone = row['phone'],
 		    		picture = row['profile_pic']
-		    	$('.contacts').append('<div class="contact_id" id="' + id + '"></div>');
+		    	$('.contacts').append('<div class="col-md-4 col-sm-6 col-xs-12"><div class="contact_id" id="' + id + '"></div>');
 		    	$('#'+id).append('<div class="profile_pic"><img class="img-responsive" src="assets/images/profile_pictures/' + id + '.jpg">')
 		    	$('#'+id).append('<div class="name">' + first_name + ' ' + last_name + '</div>');
-		    	$('#'+id).append('<div class="idlink"><a href="profile_page.html?id=' + id + '">Go To Profile Page</a></div></li>');
+		    	$('#'+id).append('<div class="idlink"><a href="profile_page.html?id=' + id + '">Go To Profile Page</a></div></div></li>');
 		    })
 		});
 		</script>
